@@ -17,4 +17,9 @@ public class Toy {
     private String name;
 
     private Float price;
+
+    public Toy(RequestToyDto requestToyDto) {
+        this.name = requestToyDto.name();
+        this.price = requestToyDto.price();
+    }
 }
