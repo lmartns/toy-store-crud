@@ -1,5 +1,6 @@
-package com.example.toy_store_crud.domain.product;
+package com.example.toy_store_crud.domain.entity;
 
+import com.example.toy_store_crud.domain.dto.CreateToyDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,8 +19,8 @@ public class Toy {
 
     private Float price;
 
-    public Toy(RequestToyDto requestToyDto) {
-        this.name = requestToyDto.name();
-        this.price = requestToyDto.price();
+    public Toy(CreateToyDto createToyDto) {
+        this.name = createToyDto.name();
+        this.price = createToyDto.price();
     }
 }

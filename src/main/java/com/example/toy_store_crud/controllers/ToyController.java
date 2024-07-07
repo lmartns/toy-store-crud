@@ -1,8 +1,8 @@
 package com.example.toy_store_crud.controllers;
 
-import com.example.toy_store_crud.domain.product.RequestToyDto;
-import com.example.toy_store_crud.domain.product.Toy;
-import com.example.toy_store_crud.domain.product.ToyRepository;
+import com.example.toy_store_crud.domain.dto.CreateToyDto;
+import com.example.toy_store_crud.domain.entity.Toy;
+import com.example.toy_store_crud.repository.ToyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -20,8 +20,8 @@ public class ToyController {
     }
 
     @PostMapping
-    public ResponseEntity createToy(@RequestBody @Validated RequestToyDto requestToyDto) {
-        Toy newToy = new Toy(requestToyDto);
+    public ResponseEntity createToy(@RequestBody @Validated CreateToyDto createToyDto) {
+        Toy newToy = new Toy(createToyDto);
         toyRepository.save(newToy);
         return ResponseEntity.ok().build();
     }
