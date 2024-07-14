@@ -1,4 +1,8 @@
 package com.example.toy_store_crud.domain.dto;
 
-public record UpdateToyDto (String name, Float price){
+import jakarta.validation.constraints.NotNull;
+
+public record UpdateToyDto (@NotNull String id,
+                            String name,
+                            Float price){
 }
