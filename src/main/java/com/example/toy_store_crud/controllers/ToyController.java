@@ -70,6 +70,10 @@ public class ToyController {
         return ResponseEntity.ok(toyToUpdate);
     }
 
+    @Operation(summary = "Delete a toy")
+    @ApiResponse(responseCode = "200", description = "Toy deleted")
+    @ApiResponse(responseCode = "404", description = "Toy not found")
+    @ApiResponse(responseCode = "500", description = "Internal server error")
     @DeleteMapping("/{id}")
     public ResponseEntity deleteToy(@PathVariable String id, DeleteToyDto deleteToyDto) {
         var toy = toyRepository.findById(deleteToyDto.id());
